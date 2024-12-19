@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <cmath>
-#include <pid_controller/pid.h>
+#include <pid_package/pid.h>
 
 using namespace std;
 

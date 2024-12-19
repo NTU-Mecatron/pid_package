@@ -10,12 +10,19 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 
 include_directories(include)
-add_library(${PROJECT_NAME} src/pid.cpp)
-ament_target_dependencies(${PROJECT_NAME} rclcpp)
-install(
-  TARGETS ${PROJECT_NAME}
-  DESTINATION lib/${PROJECT_NAME}
+
+add_library(pid_package SHARED src/pid.cpp)
+ament_target_dependencies(pid_package ament_cmake rclcpp)
+
+install(TARGETS pid_package
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
 )
+install(DIRECTORY include/ DESTINATION include)
+
+ament_export_include_directories(include)
+ament_export_libraries(pid_package)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
