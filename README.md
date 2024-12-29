@@ -10,6 +10,13 @@
     double calculate ( double setpoint, double current );
 ```
 
+## Installation
+
+```bash
+cd ~/catkin_ws/src
+git clone -b ros1 https://github.com/NTU-Mecatron/pid_package
+```
+
 ## Example usage
 
 For `.hpp`/`.h` file:
